@@ -40,7 +40,7 @@ void UpdateTrayTip()
 {
     wcscpy_s(
         g_trayIcon.szTip,
-        g_enabled ? L"StayActive - ON" : L"StayActive - OFF");
+        g_enabled ? L"Stay Active - ON" : L"Stay Active - OFF");
 
     Shell_NotifyIconW(NIM_MODIFY, &g_trayIcon);
 }
@@ -197,7 +197,7 @@ int WINAPI wWinMain(
     g_trayIcon.uCallbackMessage = WM_TRAY;
     g_trayIcon.hIcon = LoadIconW(nullptr, IDI_APPLICATION);
 
-    wcscpy_s(g_trayIcon.szTip, L"StayActive - ON");
+    wcscpy_s(g_trayIcon.szTip, L"Stay Active - ON");
 
     Shell_NotifyIconW(NIM_ADD, &g_trayIcon);
 
