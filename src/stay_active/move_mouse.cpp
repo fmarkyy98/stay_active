@@ -1,11 +1,14 @@
 #define UNICODE
 #define _UNICODE
 
-#include <windows.h>
-#include <shellapi.h>
 #include <atomic>
 #include <chrono>
 #include <thread>
+
+#include <windows.h>
+#include <shellapi.h>
+
+#include "resource.h"
 
 namespace
 {
@@ -195,7 +198,9 @@ int WINAPI wWinMain(
     g_trayIcon.uID = 1;
     g_trayIcon.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;
     g_trayIcon.uCallbackMessage = WM_TRAY;
-    g_trayIcon.hIcon = LoadIconW(nullptr, IDI_APPLICATION);
+    g_trayIcon.hIcon = LoadIconW(
+        instance,
+        MAKEINTRESOURCEW(IDI_GREEN_DOT));
 
     wcscpy_s(g_trayIcon.szTip, L"Stay Active - ON");
 
